@@ -4,6 +4,7 @@
   "description": "project boilerplate labjs",
   "main": "webpack.config.js",
   "scripts": {
+    "watch": "MODE=development ./server/webpack-server.js",
     "build": "npx webpack --config=webpack.config.js --mode development",
     "deploy": "npx webpack --config=webpack.config.js --mode production",
   },
