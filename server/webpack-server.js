@@ -27,6 +27,8 @@ app.use(webpackHot);
 app.use(express.static("dist"));
 app.listen(`${port}`, () => console.log(`port ${port}`));
 
+
+
 /*
 
   two ways for webpack-dev-server hot update:

@@ -35,12 +35,14 @@ module.exports = (env, argv) => {
             new HtmlWebpackPlugin({
                 title: `trust app`,
                 'meta': {
+
                     'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
                     'theme-color': '#4285f4',
                     /*
                         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
                         <meta name="theme-color" content="#4285f4">
                     */
+                   
                     'Content-Security-Policy': { 'http-equiv': 'Content-Security-Policy', 'content': 'default-src https:' },
                     'set-cookie': { 'http-equiv': 'set-cookie', content: 'name=value; expires=date; path=url' },
                     /*
