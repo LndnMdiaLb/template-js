@@ -6,8 +6,3 @@ if (typeof window === 'undefined') {
     /* browser */
     window.libs = libs;
 }
-
-// import CryptoJS from 'crypto-js';
-// window.libs = {
-//     CryptoJS
-// }
