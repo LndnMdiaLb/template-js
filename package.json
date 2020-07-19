@@ -6,17 +6,20 @@
   "scripts": {
     "build": "npx webpack --config=webpack.config.js --mode development",
     "deploy": "npx webpack --config=webpack.config.js --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+
+    "server": "./server/express-root.js",
+    "kill": "kill -9 $(lsof -ti :3000) && kill -9 $(lsof -ti :8080)",
+    "run": "npm run build & npm run server",
+    "tunnel": "ngrok http 3000"
+    
   },
   "keywords": [],
   "author": "andreas dilaveris",
   "license": "ISC",
   "dependencies": {
-    "@babel/runtime": "^7.10.4",
-    "core-js": "^3.6.5",
-    "regenerator-runtime": "^0.13.5",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ws": "^7.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
