@@ -33,7 +33,21 @@ module.exports = (env, argv) => {
             new webpack.HotModuleReplacementPlugin(),
             // Generate a base html file and injects all generated css and js files
             new HtmlWebpackPlugin({
-                title: `trust app`
+                title: `trust app`,
+                'meta': {
+                    'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
+                    // Will generate: <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                    'theme-color': '#4285f4',
+                    // Will generate: <meta name="theme-color" content="#4285f4">
+                    //
+                    'Content-Security-Policy': { 'http-equiv': 'Content-Security-Policy', 'content': 'default-src https:' },
+                    // Will generate: <meta http-equiv="Content-Security-Policy" content="default-src https:">
+                    // Which equals to the following http header: `Content-Security-Policy: default-src https:`
+                    'set-cookie': { 'http-equiv': 'set-cookie', content: 'name=value; expires=date; path=url' },
+                    // Will generate: <meta http-equiv="set-cookie" content="value; expires=date; path=url">
+                    // Which equals to the following http header: `set-cookie: value; expires=date; path=url`
+                },            
+                template: 'src/index.html'
             }),
         ],
         devServer: {
