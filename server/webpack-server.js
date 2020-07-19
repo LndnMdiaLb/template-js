@@ -8,7 +8,8 @@ const app = express();
 /* 
   generate compiler using webpack(config) 
 */
-const mode = process.env.MODE || 'development'
+
+const mode = process.env.MODE || 'development';
 
 const webpack = require("webpack");
 const config = require("../webpack.config.js")({}, { mode });
