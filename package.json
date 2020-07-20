@@ -10,7 +10,7 @@
 
     "server": "./server/express-root.js",
     "kill": "kill -9 $(lsof -ti :3000) && kill -9 $(lsof -ti :8080)",
-    "run": "npm run build & npm run server",
+    "boot": "npm run build & npm run server",
     "tunnel": "ngrok http 3000"
     
   },

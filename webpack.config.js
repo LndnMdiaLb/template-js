@@ -17,8 +17,8 @@ module.exports = (env, argv) => {
         mode: mode,
         output: {
             filename: "[name].js",
-            path: path.resolve(__dirname, "./dist")
-            // publicPath: '/js'
+            path: path.resolve(__dirname, "./dist"),
+            publicPath: "/"
         },
         plugins: [
             // Cleans the dist folder before the build starts
@@ -35,22 +35,7 @@ module.exports = (env, argv) => {
             new HtmlWebpackPlugin({
                 title: `trust app`,
                 'meta': {
-
                     'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
-                    'theme-color': '#4285f4',
-                    /*
-                        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                        <meta name="theme-color" content="#4285f4">
-                    */
-                   
-                    'Content-Security-Policy': { 'http-equiv': 'Content-Security-Policy', 'content': 'default-src https:' },
-                    'set-cookie': { 'http-equiv': 'set-cookie', content: 'name=value; expires=date; path=url' },
-                    /*
-                        // Which equals to the following http header: `Content-Security-Policy: default-src https:`
-                        <meta http-equiv="Content-Security-Policy" content="default-src https:">
-                        // Which equals to the following http header: `set-cookie: value; expires=date; path=url`
-                        <meta http-equiv="set-cookie" content="value; expires=date; path=url">
-                    */
                 },            
                 template: 'src/index.html'
             }),
