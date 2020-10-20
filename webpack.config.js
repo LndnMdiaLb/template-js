@@ -9,19 +9,29 @@ const src = "./src"
 
 module.exports = (env, argv) => {
     const mode = argv.mode || "development";
-    return {
+    const isDev = mode === "development";
+    const config = {
+        mode: mode,
         entry: {
+            /* research this 
+            alt:
+                require(webpack-hot-middleware/client)
+                "this piece of javascript is sent down to the client to set up the websocket connection"
+            */
             lib: ["webpack-hot-middleware/client?reload=true", `${src}/lib.js`],
             app: ["webpack-hot-middleware/client?reload=true", `${src}/app.js`],
         },
-        mode: mode,
         output: {
             filename: "[name].js",
             path: path.resolve(__dirname, "./dist"),
+            /*  root of file serving is "/"
+                ex: in html src=/js/bundle.js change to "/js"
+                */
             publicPath: "/"
         },
         plugins: [
             // Cleans the dist folder before the build starts
+            // https://github.com/johnagan/clean-webpack-plugin#options-and-defaults-optional
             new CleanWebpackPlugin(),
             // Multi threading babel loader configuration with caching for .js and .jsx files
             // Multi threading typescript loader configuration with caching for .ts and .tsx files
@@ -36,13 +46,25 @@ module.exports = (env, argv) => {
                 title: `trust app`,
                 'meta': {
                     'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
-                },            
-                template: 'src/index.html'
+                },
+                template: './src/index.html'
             }),
         ],
         devServer: {
             contentBase: "./dist",
             publicPath: '/',
+            // Provides the ability to execute custom middleware after all other middleware internally within the server.
+            after: function (app, server, compiler) {
+                app;
+                server;
+                compiler
+                // do fancy stuff
+            }
         },
-    }
+    };
+
+    /* inline-source-map */
+    if (isDev) config.devtool = 'source-map';
+    return config
+
 }

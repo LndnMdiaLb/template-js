@@ -7,12 +7,10 @@
     "watch": "MODE=development ./server/webpack-server.js",
     "build": "npx webpack --config=webpack.config.js --mode development",
     "deploy": "npx webpack --config=webpack.config.js --mode production",
-
     "server": "./server/express-root.js",
-    "kill": "kill -9 $(lsof -ti :3000) && kill -9 $(lsof -ti :8080)",
     "boot": "npm run build & npm run server",
-    "tunnel": "ngrok http 3000"
-    
+    "kill": "kill -9 $(lsof -ti :3001) && kill -9 $(lsof -ti :8080)",
+    "tunnel": "ngrok http 3001"
   },
   "keywords": [],
   "author": "andreas dilaveris",
@@ -25,8 +23,10 @@
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "common-config-webpack-plugin": "^2.0.1",
+    "eslint": "^7.11.0",
+    "eslint-plugin-react": "^7.21.5",
     "html-webpack-plugin": "^4.3.0",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.11.0",
