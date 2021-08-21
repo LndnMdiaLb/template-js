@@ -16,8 +16,17 @@
   "author": "andreas dilaveris",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-intersection-observer": "^8.29.1",
+    "react-router-dom": "^5.2.0",
+    "react-spring": "^9.1.2",
+    "react-use-gesture": "^9.0.0",
+    "styled-components": "^5.2.0",
+    "twit": "^2.2.11",
     "ws": "^7.3.1"
   },
   "devDependencies": {
@@ -28,7 +37,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "html-webpack-plugin": "^4.3.0",
-    "webpack": "^4.44.1",
+    "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.11.0",

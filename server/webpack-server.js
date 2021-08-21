@@ -26,22 +26,27 @@ const config = require("../webpack.config.js")({}, {
 });
 const compiler = webpack(config);
 
-/* middleware */
-/*
-    const devServerOptions = Object.assign({}, config.devServer, {
-      open: true,
-      stats: {
-        colors: true,
-      },
-    });
+/* 
+  override config middleware 
+  NOT WORKING  
+
+  const devServerOptions = Object.assign({}, config.devServer, {
+    after: function(app, server, compiler) {
+        // app.get('http://localhost:4040/', function(req, res) {
+        //   res.json({ custom: 'response' });
+        // });
+        require("fs").writeFile(require("path").resolve(process.cwd(),'bin.txt'), Buffer.from('cunt', 'utf8'))
+  }});
+
 */
+
 
 const webpackDev = require("webpack-dev-middleware")(compiler, config.devServer);
 const webpackHot = require("webpack-hot-middleware")(compiler);
 
-// /*
-//   https://github.com/60frames/webpack-hot-server-middleware
-// */
+/*
+  https://github.com/60frames/webpack-hot-server-middleware
+*/
 
 app.use(webpackDev);
 app.use(webpackHot);

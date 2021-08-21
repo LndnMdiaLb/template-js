@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,300,400");
+
+h1 {
+  font-family: "Roboto", sans-serif;
+}
+
+@font-face {
+  font-family: "FranklinGothicHeavy";
+  src: url("./assets/fonts/FranklinGothicLTHeavy.ttf") format("truetype");
+  font-display: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FranklinGothicBook";
+  src: url("./assets/fonts/FranklinGothicLTBook.ttf") format("truetype");
+  font-display: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FranklinGothicMedium";
+  src: url("./assets/fonts/FranklinGothicLTMedium.ttf") format("truetype");
+  font-display: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+body,
+html,
+#app {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../components/containers/a.jpg");
+}

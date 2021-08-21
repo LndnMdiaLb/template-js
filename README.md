@@ -12,11 +12,11 @@ webpack dev server with hot reload
 
 ## Client / Server Web Socket
 
-`http://localhost:3000` request and `ws://` connection request on same host
+`http://localhost:3001` request and `ws://` connection request on same host
 
 what is `https://` and `wss://`
 
-    port=3000
+    port=3001
 
 ### NGROK tunnel
 
@@ -26,4 +26,10 @@ How does ngrok allow both `http://` request and `ws://` over it's public tunnel?
 
 [**ws:// client**](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications) and nodejs [**ws**](https://www.npmjs.com/package/ws) and tunnel via [**ngrok**](https://ngrok.com/docs#http-websockets)
 
-[**device-orientation-manager**](https://github.com/deebloo/device-orientation/blob/master/device-orientation.js)
+### [inspiration](https://www.youtube.com/watch?v=aPk1BqK8zzI)
+
+GET http://localhost:3001/events net::ERR_CONNECTION_REFUSED
+
+Console: {"lineNumber":5,"message":"PWA enabled","message_level":1,"sourceIdentifier":3,"sourceURL":"https://www.rferl.org/OneSignalSDKWorker.js?pwa=true"}
+
+something is hitting http://localhost:3001/events
