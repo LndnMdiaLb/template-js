@@ -9,6 +9,7 @@ const {
 const http = require("http")
 const express = require("express");
 const app = express();
+const webpack = require("webpack");
 
 const server = http.createServer(app);
 
@@ -19,7 +20,6 @@ const server = http.createServer(app);
 
 const mode = process.env.MODE || 'development';
 
-const webpack = require("webpack");
 /* functional config */
 const config = require("../webpack.config.js")({}, {
   mode

@@ -79,8 +79,20 @@ module.exports = (env, argv) => {
                     require(webpack-hot-middleware/client)
                     "this piece of javascript is sent down to the client to set up the websocket connection"
             */
-            lib: [/*"webpack-hot-middleware/client?reload=true",*/ `${src}/lib.js`],
-            app: [/*"webpack-hot-middleware/client?reload=true",*/ `${src}/app.js`],
+           /*
+                express server: webpack-dev-middleware + webpack-hot-middleware, __webpack_hmr
+
+                    const compiler = webpack(webpackConfig);
+                    webpackConfig.entry.app = ['webpack-hot-middleware/client', webpackConfig.entry.app];
+                    const devMiddleware = require('webpack-dev-middleware')(compiler, {});
+                    const app = express();
+                    app.use(devMiddleware);
+                    //...
+            */
+            lib: [`${src}/lib.js`],
+            app: [`${src}/app.js`],
+            // lib: ["webpack-hot-middleware/client?reload=true", `${src}/lib.js`],
+            // app: ["webpack-hot-middleware/client?reload=true", `${src}/app.js`],
         },
         output: {
             filename: "[name].js",

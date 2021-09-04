@@ -8,6 +8,7 @@
     "build": "npx webpack --config=webpack.config.js --mode development",
     "deploy": "npx webpack --config=webpack.config.js --mode production",
     "server": "./server/express-root.js",
+    "kill-server": "kill -9 $(lsof -ti :3001)",
     "boot": "npm run build & npm run server",
     "kill": "kill -9 $(lsof -ti :3001) && kill -9 $(lsof -ti :8080)",
     "tunnel": "ngrok http 3001"
@@ -16,13 +17,14 @@
   "author": "andreas dilaveris",
   "license": "ISC",
   "dependencies": {
+    "core-js": "^3.17.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "ws": "^7.3.1"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
-    "common-config-webpack-plugin": "^2.0.1",
+    "common-config-webpack-plugin": "^2.0.3",
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.13.0",
     "eslint-plugin-prettier": "^3.1.4",
