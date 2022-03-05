@@ -21,5 +21,6 @@ module.exports = {
     "plugins": [
         "react"
     ],
-    "rules": {}
+    "rules": {},
+    "indent": [2, 2, { SwitchCase: 1}]
 };
