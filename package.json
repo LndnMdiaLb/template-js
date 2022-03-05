@@ -1,5 +1,9 @@
 {
   "name": "genesis",
+  "config": {
+    "server": "3001",
+    "webpack": "8080"
+  },
   "version": "1.0.0",
   "description": "project boilerplate labjs",
   "main": "webpack.config.js",
@@ -8,10 +12,10 @@
     "build": "npx webpack --config=webpack.config.js --mode development",
     "deploy": "npx webpack --config=webpack.config.js --mode production",
     "server": "./server/express-root.js",
-    "kill-server": "kill -9 $(lsof -ti :3001)",
     "boot": "npm run build & npm run server",
-    "kill": "kill -9 $(lsof -ti :3001) && kill -9 $(lsof -ti :8080)",
-    "tunnel": "ngrok http 3001"
+    "kill-server": "kill -9 $(lsof -ti :$npm_package_config_server)",
+    "kill-all": "kill -9 $(lsof -ti :$npm_package_config_server) && kill -9 $(lsof -ti :$npm_package_config_webpack)",
+    "tunnel": "ngrok http $npm_package_config_server"
   },
   "keywords": [],
   "author": "andreas dilaveris",

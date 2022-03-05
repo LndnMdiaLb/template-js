@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const mode = process.env.MODE || 'development';
 const {
   parsed: {
     webpack_port: port
@@ -18,12 +19,10 @@ const server = http.createServer(app);
   generate compiler using webpack(config) 
 */
 
-const mode = process.env.MODE || 'development';
-
 /* functional config */
-const config = require("../webpack.config.js")({}, {
-  mode
-});
+const configfn = require("../webpack.config.js")
+const config = configfn(/*env*/{}, { mode });
+
 const compiler = webpack(config);
 
 /* middleware */
@@ -47,7 +46,8 @@ app.use(webpackDev);
 app.use(webpackHot);
 
 app.use(express.static("dist"));
-app.listen(`${port}`, () => console.log(`port ${port}`));
+// 
+app.listen(`${port}`, () => console.log(`port ${process.env.npm_package_config_webpack}`));
 
 
 /*

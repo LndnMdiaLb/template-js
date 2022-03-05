@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const   { parsed: { port } } = require('dotenv').config() ;
+// const   { parsed: { port } } = require('dotenv').config() ;
 
 const http = require("http")
 const express = require("express");
@@ -8,6 +8,7 @@ const express = require("express");
 const app = express();
 const server = http.createServer(app);
 app.use(express.static("dist"));
+const port = process.env.npm_package_config_server;
 server.listen(`${port}`, () => console.log(`port ${port}`));
 
 /* 
